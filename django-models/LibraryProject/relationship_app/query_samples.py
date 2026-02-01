@@ -87,8 +87,8 @@ def query_librarian_for_library(library_name):
         # Get the library by name
         library = Library.objects.get(name=library_name)
         
-        # Query the librarian for this library using the OneToOne relationship
-        librarian = library.librarian
+        # Query the librarian for this library using Librarian.objects.get
+        librarian = Librarian.objects.get(library=library)
         
         print(f"Librarian for {library_name}: {librarian.name}")
         
